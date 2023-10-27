@@ -1,0 +1,40 @@
+(Crie as Seguintes Variaveis:
+"chat-log"
+Value=0
+
+"log-ativa"
+Value=Desligado )
+
+
+
+$nomention
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$onlyIf[$channelExists[$mentionedChannels[1]]==true;Erro ao setar o Chat Log, Verifique se Você marcou um Chat Válido.]
+$setServerVar[chat-log;$mentionedChannels[1];$guildID]
+$setServerVar[log-ativa;Ligado;$guildID]
+$title[Chat Log Setado]
+$description[> O Usuário <@$authorID> Setou o um Chat como **Logs** Sucesso!
+> Novo Chat Log: <#$mentionedChannels[1]>]
+$reply
+$color[ffffff]
+$endif
+
+
+$if[$checkCondition[$isAdmin[$authorID]==false]]
+$nomention
+$reply
+$title[Erro $random[100;999]]
+$description[> <@$authorID>, Você não tem permissão para Ultilizar esse Comando, Você precisa de um Cargo que Tenha Permissão de "**Administrador**"]
+$color[ffffff]
+
+$endif
+
+
+
+
+(as $if para colocar nos comandos de Puniçoes (ou outros comandos que Você deseja que apareça nas Logs)
+
+$if[$getServerVar[log-ativa]==Ligado]
+$if[$channelExists[$getServerVar[chat-log]]==true]
+
+)
