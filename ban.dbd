@@ -1,0 +1,29 @@
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$nomention
+
+$var[motivo;$optOff[$unescape[$noMentionMessage]]]
+$var[motivo;$optOff[$unescape[$if[$var[motivo]==]Nenhum motivo inserido.$elseif[$var[motivo]!=]$var[motivo]$endif]]]
+
+$reply
+$title[Punição Aplicada]
+$description[O Usuário <@$mentioned[1]> Recebeu uma Punição do Administrador <@$authorID>]
+$addField[Punição;Banido(a)]
+$addField[Motivo;$var[motivo]]
+$color[ffffff]
+$banID[$mentioned[1]]
+$argsCheck[>1;Você precisa mencionar o Usuário que Vai Receber a Punição.]
+
+$deleteIn[15s]
+$endif
+
+
+$if[$checkCondition[$isAdmin[$authorID]==false]]
+$nomention
+$reply
+$title[Erro]
+$description[> <@$authorID>, Você não tem permissão para Ultilizar esse Comando, Você precisa de um Cargo que Tenha Permissão de "**Administrador**"]
+$color[ffffff]
+
+$endif
+
+  (Você pode colar o Codigo do Chat Log nesse Comando, Ele está no mesmo Repositorio)
