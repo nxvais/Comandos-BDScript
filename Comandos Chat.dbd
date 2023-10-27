@@ -1,0 +1,52 @@
+Comando que Desativa a Visualização do Chat (Apenas Administradores Poderam ver o Chat)
+
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$title[Chat Bloqueado]
+$description[<@$authorID>, o Chat Foi Bloqueado com Sucesso, Pessoas sem Cargos Não poderam Ver esse Chat, Para desbloquear ultilize **-view**]
+$color[ffffff]
+
+
+$deletecommand
+$deleteIn[7s]
+$editChannelPerms[$channelID;$guildID;-readmessages]
+$endif
+
+Comando que Ativa Novamente
+
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$title[Chat Desbloqueado]
+$description[<@$authorID>, o Chat foi Desbloqueado com Sucesso, Agora todos podem Ver esse Chat Novamente]
+$color[$getServerVar[color]]
+$footer[Nextz BOT • © Todos os direitos reservados.]
+
+$editChannelPerms[$channelID;$guildID;+readmessages]
+$deletecommand
+$deleteIn[7s]
+$endif
+
+Comando que Fecha o Chat, Todos poderão Ver mas Não Conseguiram Enviar Mensagens
+
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$nomention
+$title[Chat Fechado 🔒]
+$description[<@$authorID>, o Chat foi Fechado com Sucesso, Pessoas sem Permissões não vao Conseguir Enviar Mensagens, Para desbloquearo Chat ultilize **-unlock**]
+$color[$getServerVar[color]]
+$footer[Nextz BOT • © Todos os direitos reservados.]
+
+$deletecommand
+$deleteIn[7s]
+$editChannelPerms[$channelID;$guildID;-sendmessages]
+$endif
+
+Comando que Abre o Chat e Libera para Todos Mandarem Mensagem Denovo
+
+$if[$checkCondition[$isAdmin[$authorID]==true]]
+$nomention
+$title[Chat Desbloqueado 🔓]
+$description[<@$authorID>, o Chat Foi Desbloqueado com Sucesso, Agora todos Podem Mandar Mensagens Novamente]
+$color[$getServerVar[color]]
+$deletecommand
+$deleteIn[7s]
+$footer[Nextz BOT • © Todos os direitos reservados.]
+
+$endif
