@@ -1,0 +1,11 @@
+troque o "comando;comando..." pelos seus Comandos e deixe o Gatilho do Comando como o Prefixo do bot, Apenas o Prefixo
+
+
+$onlyIf[$message!=;]
+$if[$checkContains[$toLowercase[$message[1]];comando;comando;comando;comando...;]==false]
+$title[❔ - Comando Inexistente]
+$description[O comando `"$message[1]"` não foi encontrado, verifique se digitou o comando corretamente, ou se ele existe.]
+$thumbnail[$userAvatar[$botID]]
+$color[ffffff]
+
+$endif
